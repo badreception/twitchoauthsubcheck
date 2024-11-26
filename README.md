@@ -1,24 +1,33 @@
-Example backend for a simple twitch subscription check to verify if a twitch user is subscribed to a specific channel on twitch.
 
-live version: https://twitchv2.badrep.net
+# twitchoauthsubcheck 
+backend for a simple twitch subscription check to verify if a twitch user is subscribed to a specific channel on twitch.
 
-step #1:
-https://dev.twitch.tv/console
-"register your application"
+## demo
+https://twitchv2.badrep.net
 
-Name: anything
-oauth redirect urls: https://your.domain.tld/callback
-category: website integration
-client type: confidential
-im not a robot: are you?
+## how-to
+#### 1. download files / clone repo
+#### 2. register your application on twitch
+visit https://dev.twitch.tv/console and "register your application".
 
-Depending on the a/b test you're in, you may not get your client id or secrete key. Just go back to https://dev.twitch.tv/console and click manage next to your app.
-Copy client id, and click new secret, then copy the secret.
+name: anything
 
-Step #2:
-add the secret to the.htaccess file (your'll see where).
-Add the client id and callback URL to callback.php and login.php, you'll see where.
-add the twitch channel's broadcast id to callback.php (google it, there are websites that provide this)
+oauth redirect urls: https://your.domain.tld/callback 
 
-Step #3
-upload the files, test. If you did it right, you should see "You are subscribed to channelname!"
+category: website integration 
+
+client type: confidential 
+
+Depending on the a/b test twitch is running, you may not get your client id or secrete key. Just go back to https://dev.twitch.tv/console,click manage next to your app then copy the client id, click new secret, then copy the secret.
+
+#### 3. edit files
+add the secret to the .htaccess file.
+
+Add the client id and callback URL to callback.php and login.php.
+
+add the twitch channel's broadcast id to callback.php.
+
+you can get the broadcast id from https://twitchv2.badrep.net
+
+#### 4. test
+visit your site and log in with twitch. if you did it right, and you're subscribed, you should see "You are subscribed!" message.
