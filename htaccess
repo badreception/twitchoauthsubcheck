@@ -1,0 +1,13 @@
+# Enable the Rewrite Engine
+RewriteEngine On
+
+# Hide .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Optional: Redirect from .php URLs to clean URLs to avoid duplicate content
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.php\ HTTP/
+RewriteRule ^(.*)\.php$ /$1 [R=301,L]
+
+SetEnv TWITCH_CLIENT_SECRET past_client_secret_here
