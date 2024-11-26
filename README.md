@@ -1,6 +1,6 @@
 
 # twitchoauthsubcheck 
-backend for a simple twitch subscription check to verify if a twitch user is subscribed to a specific channel on twitch.
+backend for a simple twitch subscription check to verify if a twitch user is subscribed to a specific channel on twitch in php.
 
 ## demo
 https://twitchv2.badrep.net
