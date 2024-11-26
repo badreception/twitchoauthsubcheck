@@ -6,7 +6,7 @@
  * This script handles the OAuth callback from Twitch.
  * It exchanges the authorization code for an access token,
  * retrieves the user's Twitch ID, and checks if the user is
- * subscribed to pokelawls.
+ * subscribed.
  *
  * It then redirects the user to a clean URL without query parameters.
  * 
@@ -22,8 +22,8 @@ $client_id = 'clientid'; // Your client_id
 $client_secret = getenv('TWITCH_CLIENT_SECRET'); // Retrieve from environment variable
 $redirect_uri = 'redirecturi'; // Your redirect_uri
 
-// Twitch User ID for pokelawls
-$broadcaster_id = '12943173'; // pokelawls' Twitch User ID
+// Twitch User ID
+$broadcaster_id = 'replacethis'; // Twitch User ID
 
 // Check if 'code' is returned in the query parameters
 if (isset($_GET['code'])) {
@@ -117,7 +117,7 @@ if (isset($_GET['code'])) {
     if (isset($user_info['data'][0]['id'])) {
         $user_id = $user_info['data'][0]['id'];
 
-        // Check if the user is subscribed to pokelawls
+        // Check if the user is subscribed to channel
         $subscription_url = 'https://api.twitch.tv/helix/subscriptions/user' .
             '?broadcaster_id=' . $broadcaster_id .
             '&user_id=' . $user_id;
@@ -146,10 +146,10 @@ if (isset($_GET['code'])) {
         // Check if the 'data' field is present and not empty
         if (isset($subscription_info['data'][0])) {
             // User is subscribed
-            echo '<h1>You are subscribed to pokelawls!</h1>';
+            echo '<h1>You are subscribed!</h1>';
         } else {
             // User is not subscribed
-            echo '<h1>You are not subscribed to pokelawls.</h1>';
+            echo '<h1>You are not subscribed.</h1>';
         }
     } else {
         // Handle error if user information is not retrieved
